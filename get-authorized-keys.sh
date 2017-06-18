@@ -4,12 +4,6 @@ const fs = require('fs'),
       http = require('http'),
       querystring = require('querystring');
 
-#var args = '';
-#var userId = '';
-
-#process.argv.forEach((val, index) => {
-#    args += val + ' ---> ' + index + '\n';
-#});
 
 if (process.argv[2] !== '' )
 {
@@ -57,7 +51,3 @@ if (process.argv[2] !== '' )
     process.exit(-1);
 }
 
-#fs.writeFile('/home/ubuntu/message.txt', args, (err) => {
-#    if (err) throw err;
-#console.log('The file has been saved!');
-#});
