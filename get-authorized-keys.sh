@@ -45,7 +45,8 @@ if (process.argv[2] !== '' )
 
     var req = http.request(options, callback).end();
 
-    req.write
+    req.write();
+    req.end();
 
 }else{
     process.exit(-1);
