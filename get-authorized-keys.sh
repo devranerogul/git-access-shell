@@ -1,4 +1,4 @@
-//#!/usr/bin/node
+#!/usr/bin/node
 
 const fs = require('fs'),
       http = require('http'),
@@ -7,7 +7,6 @@ const fs = require('fs'),
 
 if (process.argv[2] !== '' )
 {
-    console.log('going...');
     var postData = querystring.stringify({
         'pubkey' : process.argv[2]
     });

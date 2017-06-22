@@ -9,7 +9,7 @@ function Log {
   echo "$DATE - $1" >> "$LOG_FILE"
 }
 
-response=$(curl --write-out %{http_code} --silent --output /dev/null http://www.digitalbueno.com/access.php?u=$1)
+response=$(curl --write-out %{http_code} --silent --output /dev/null http://52.59.205.23/$1/name)
 
 if [ "$response" = "200" ]
 then
