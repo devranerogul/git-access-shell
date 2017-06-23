@@ -9,7 +9,12 @@ function Log {
   echo "$DATE - $1" >> "$LOG_FILE"
 }
 
-response=$(curl --write-out %{http_code} --silent --output /dev/null http://52.59.205.23/$1/name)
+# Repo name from SSH COMMAND : git-receive-pack ~/project.git
+IFS=' ' read -r -a array <<< "$SSH_ORIGINAL_COMMAND"
+
+Log "Requesting access for repo ${array[1]}"
+
+response=$(curl --write-out %{http_code} --silent --output /dev/null http://api.kevlarapp.com/auth/$1/${array[1]})
 
 if [ "$response" = "200" ]
 then

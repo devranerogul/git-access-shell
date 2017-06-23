@@ -36,7 +36,7 @@ if (process.argv[2] !== '' )
             const userId = user._id,
                   pubKey = user.pubkey;
 
-            process.stdout.write(`command="/etc/scripts/access-check.sh --userId=${ userId }",no-user-rc,no-X11-forwarding,no-agent-forwarding,no-pty ${ pubKey }` + `\n`);
+            process.stdout.write(`command="/etc/scripts/access-check.sh ${ userId }",no-user-rc,no-X11-forwarding,no-agent-forwarding,no-pty ${ pubKey }` + `\n`);
         }else{
             process.exit(-1);
         }
