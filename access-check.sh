@@ -21,6 +21,7 @@ repo_cleaned="${requested_repo/$clear_path}"
 repo_cleaned="${repo_cleaned/$clear_ext}"
 
 Log "Requesting access for repo cleaned ${repo_cleaned}"
+Log "http://api.kevlarapp.com/auth/$1/${repo_cleaned}"
 
 response=$(curl --write-out %{http_code} --silent --output /dev/null http://api.kevlarapp.com/auth/$1/${repo_cleaned})
 
