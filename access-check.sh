@@ -14,7 +14,15 @@ IFS=' ' read -r -a array <<< "$SSH_ORIGINAL_COMMAND"
 
 Log "Requesting access for repo ${array[1]}"
 
-response=$(curl --write-out %{http_code} --silent --output /dev/null http://api.kevlarapp.com/auth/$1/${array[1]})
+requested_repo=${array[1]}
+clear_path="~/"
+clear_ext=".git"
+repo_cleaned="${requested_repo/$clear_path}"
+repo_cleaned="${repo_cleaned/$clear_ext}"
+
+Log "Requesting access for repo cleaned ${repo_cleaned}"
+
+response=$(curl --write-out %{http_code} --silent --output /dev/null http://api.kevlarapp.com/auth/$1/${repo_cleaned})
 
 if [ "$response" = "200" ]
 then
